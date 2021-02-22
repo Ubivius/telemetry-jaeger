@@ -1,0 +1,95 @@
+provisionDataStore:
+  cassandra: false
+  elasticsearch: false
+
+storage:
+  type: elasticsearch
+  elasticsearch:
+    scheme: http
+    host: elasticsearch-master
+    port: 9200
+    user: elastic
+    usePassword: false
+
+agent:   
+  resources:
+    requests:
+      cpu: 25m #default 256m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+collector:
+  resources:
+    requests:
+      cpu: 50m #default 500m
+      memory: 512Mi
+    limits:
+      cpu: 1
+      memory: 1Gi
+
+query:
+  resources:
+    requests: 
+       cpu: 10m #default 256m
+       memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+esIndexCleaner:
+  enabled: true
+  resources:
+    requests:
+      cpu: 10m #default 256m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi   
+
+esRollover:
+  enabled: true
+  extraEnv:
+    - name: CONDITIONS
+      value: '{
+        "max_age": "7d",
+        "max_size": "2GB" 
+      }'
+  resources:
+    requests:
+      cpu: 10m #default 256m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+
+esLookback:
+  enabled: true
+  resources:
+    requests:
+      cpu: 10m #default 256m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# Only for testing
+hotrod:
+  enabled: true
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi  
+
+# Total
+#   limits:
+#     cpu: 220m
+#     memory: 626Mi
+#   requests:
+#     cpu: 800m
+#     memory: 596Mi
