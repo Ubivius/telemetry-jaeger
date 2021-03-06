@@ -37,4 +37,7 @@ jobs:
         helm repo update
     - name: Push with valuefile
       run: |
-        echo $NAME
+        IN=$(echo ${GITHUB_REPOSITORY})
+        NAME=${IN#"Ubivius/telemetry-"}
+        chmod 700 .github/helm_update.sh
+        ./.github/helm_update.sh $NAME
