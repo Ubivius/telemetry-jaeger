@@ -1,6 +1,15 @@
-# Jaeger Helm Chart
+# Telemetry-Jaeger
+
+A tool that aggregates network traces for the cluster
+
+## Usage
+
+[Helm](https://helm.sh) must be installed to use the charts.
+Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 
 - jaeger · helm/jaegertracing (https://artifacthub.io/packages/helm/jaegertracing/jaeger)
+
+Once Helm is set up properly, add the repo as follows:
 
 ## Get Repo Info
 
@@ -14,7 +23,7 @@ $ helm repo update
 To install the chart with the release name `jaeger`:
 
 ```console
-$ helm install jaeger --version <version> jaegertracing/jaeger -f values.yaml
+$ helm install jaeger --version <version> jaegertracing/jaeger -f chart/values.yaml
 ```
 
 ## Uninstalling the Chart
