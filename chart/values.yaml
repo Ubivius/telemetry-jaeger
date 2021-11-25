@@ -74,22 +74,3 @@ esLookback:
     limits:
       cpu: 500m
       memory: 512Mi
-
-# Only for testing
-hotrod:
-  enabled: true
-  resources:
-    requests:
-      cpu: 10m
-      memory: 128Mi
-    limits:
-      cpu: 100m
-      memory: 128Mi  
-
-# Total
-#   limits:
-#     cpu: 220m
-#     memory: 626Mi
-#   requests:
-#     cpu: 800m
-#     memory: 596Mi
